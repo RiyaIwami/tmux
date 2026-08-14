@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(/usr/local/bin/sample.sh:*)",
+      "Bash(chmod:*)"
+    ],
+    "deny": [
+      "Read(*/.env*)",
+      "Read(.env*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.claude/stop-send-notification.mjs"
+          }
+        ]
+      }
+    ]
+  }
+}
